@@ -1,4 +1,7 @@
 from django.db import models
+from django.conf import settings
+import uuid
+from django.contrib.auth.models import User
 
 # Create your models here.
 class SessionModel(models.Model):
