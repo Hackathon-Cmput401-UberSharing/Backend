@@ -4,4 +4,4 @@ import uuid
 class SessionSerializer(serializers.ModelSerializer):
     class Meta:
         model = SessionModel
-        fields = ['user', 'id', 'profileImage', 'displayName']
+        fields = ['user', 'id', 'profileImage', 'displayName', 'status']
