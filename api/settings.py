@@ -33,6 +33,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'groupSessions.apps.GroupSessionsModel',
+    'request.apps.RequestConfig',
     'rest_framework',
     'django.contrib.admin',
     'django.contrib.auth',
