@@ -5,8 +5,8 @@ from django.contrib.auth.models import User
 from users.models import *
 
 # Create your models here.
-class SessionModel(models.Model):
-    id = models.CharField(max_length=200)
+class GroupSessionsModel(models.Model):
+    id = models.CharField(max_length=200,primary_key=True)
     initiator = models.ForeignKey(UserModel, related_name=("initiator"), on_delete=models.CASCADE, null=True)
     follower = models.ManyToManyField(UserModel)
     '''

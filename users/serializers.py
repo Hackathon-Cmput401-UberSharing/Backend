@@ -1,5 +1,7 @@
 from rest_framework import serializers
 import uuid
+from .models import *
+
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
