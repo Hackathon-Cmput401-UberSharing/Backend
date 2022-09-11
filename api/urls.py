@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from request.views import *
+from groupSessions.views import *
 
 
 urlpatterns = [
@@ -23,4 +24,8 @@ urlpatterns = [
     path('request/getRequests', getRequests),
     path('request/acceptRequest', acceptRequest),
     path('request/rejectRequest', rejectRequest),
+    path('groupSessions/getSessions', getSessions),
+    path('groupSessions/startSession', startSession),
+
+
 ]

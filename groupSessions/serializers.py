@@ -6,4 +6,4 @@ from .models import *
 class GroupSessionsSerializer(serializers.ModelSerializer):
     class Meta:
         model = GroupSessionsModel
-        fields = ['id', 'initiator', 'follower', 'location', 'time', 'success', 'ongoing']
+        fields = "__all__"
