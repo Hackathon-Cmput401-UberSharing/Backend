@@ -15,6 +15,7 @@
 /groupSessions/.DS_Store
 /request/.DS_Store
 /Users/.DS_Store
+**/.DS_Store
 */__pycache__/*
 *.log
 *.pot
