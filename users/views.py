@@ -34,6 +34,3 @@ def check_password(request):
         else:
             message = {'message:', '400'}
             return Response(message, status=status.HTTP_400_BAD_REQUEST)
-
-def myProfile(request):
-    return Response(message, status=status.HTTP_200_OK)

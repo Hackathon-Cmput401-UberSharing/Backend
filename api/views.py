@@ -9,6 +9,7 @@ import os
 import requests
 import json
 
+from users.serializers import *
 from users import views as user_views
 #from sessions import session_views
 #from messages import message_views
@@ -34,14 +35,32 @@ def login(request):
         result = user_views.check_password(request)
         if (result.status_code != 200):
             print('error--------------', result.data)
-            return render(request, "bad.html")
+            response = { 'detail': 'failed!'}
+            return HttpResponseRedirect("./", status=status.HTTP_400_BAD_REQUEST)
         else:
             # TODO success message
             print('Success')
             uid = request.session['id']
             print('[][][]' + str(uid))
-            return render(request, "good.html")
+            response = { 'detail': 'success!'}
+            return HttpResponseRedirect("./", status=status.HTTP_200_OK)
 
 
-def myProfile(request):
-    return Response(message, status=status.HTTP_200_OK)
+def signup(request):
+    if request.method == "GET":
+        return render(request, "login.html")
+    else:
+        try:
+            user = {}
+            user['username'] = request.data['username']
+            user['displayName'] = request.data['displayName']
+            user['password'] = request.data['password']
+            user['profileImage'] = request.data['profileImage']
+        except:
+            response = {
+                'detail': 'Bad Input!'
+            }
+            return Response(response, status=status.HTTP_400_BAD_REQUEST)
+        new_user = User(user_id = uuid.uuid4(), username = user['username'], password = user['password'], profileImage = user['profileImage'], displayName = user['displayName'])
+        new_user.save()
+        return Response(response, status=status.HTTP_200_OK)
