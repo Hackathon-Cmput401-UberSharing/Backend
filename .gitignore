@@ -13,6 +13,8 @@
 /.idea/vcs.xml
 /.DS_Store
 /groupSessions/.DS_Store
+/request/.DS_Store
+/Users/.DS_Store
 */__pycache__/*
 *.log
 *.pot
