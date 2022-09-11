@@ -20,11 +20,15 @@ from django.urls import path, include
 from rest_framework import permissions
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
+from groupSessions.views import *
+from request.views import *
 from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('login/', views.login),
     path('signup/', views.signup),
+    path('groupSessions/getSessions', getSessions),
+    path('groupSessions/startSession', startSession),
     #path('myProfile/<str:id>',views.myProfile),
 ]
