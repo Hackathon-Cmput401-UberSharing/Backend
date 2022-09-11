@@ -38,4 +38,6 @@ def login(request):
         else:
             # TODO success message
             print('Success')
-            return render(request, "good.html")
+            uid = request.session['id']
+            print('[][][]' + str(uid))
+            return redirect('http://127.0.0.1:8000/myProfile/?id={}'.format(uid))

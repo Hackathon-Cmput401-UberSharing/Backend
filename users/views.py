@@ -26,10 +26,10 @@ def check_password(request):
     else:
         username = request.session['username']
         password = request.session['password']
-        print("::::::" + username +"::::" + password)
         user = authenticate(username=username, password=password)
         if user is not None:
             message = {'message:', '200'}
+            request.session['id'] = user.id
             return Response(message, status=status.HTTP_200_OK)
         else:
             message = {'message:', '400'}
