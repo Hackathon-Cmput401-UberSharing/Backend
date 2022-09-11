@@ -15,7 +15,15 @@ def getRequests(request):
         serializer = RequestSerializer(requests, many=True)
         return Response(serializer.data, status=200)
 
-
+@api_view(['POST'])
+def createRequest(request):
+    if request.method == 'POST':
+        serializer = RequestSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response("Request created!:", status=201)
+        else:
+            return Response(serializer.errors, status=400)
 
 
 @api_view(['POST'])
