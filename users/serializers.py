@@ -1,7 +1,15 @@
 from rest_framework import serializers
 import uuid
+from users.models import *
 
-class SessionSerializer(serializers.ModelSerializer):
+class UserSerializer(serializers.ModelSerializer):
     class Meta:
-        model = SessionModel
+        model = UserModel
         fields = ['user', 'id', 'profileImage', 'displayName', 'status']
+
+'''
+class LoginSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = LoginInformationModel
+        fields = ['id', 'username', 'password']
+        '''

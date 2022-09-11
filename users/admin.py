@@ -5,9 +5,9 @@ from django.contrib.auth.models import User
 from .models import *
 # Register your models here.
 class AuthorInline(admin.StackedInline):
-    model = AuthorModel
+    model = UserModel
     can_delete = False
-    verbose_name_plural = 'author'
+    verbose_name_plural = 'user'
 
 # Define a new User admin
 class UserAdmin(BaseUserAdmin):
