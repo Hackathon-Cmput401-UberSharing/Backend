@@ -40,4 +40,8 @@ def login(request):
             print('Success')
             uid = request.session['id']
             print('[][][]' + str(uid))
-            return redirect('http://127.0.0.1:8000/myProfile/?id={}'.format(uid))
+            return render(request, "good.html")
+
+
+def myProfile(request):
+    return Response(message, status=status.HTTP_200_OK)
